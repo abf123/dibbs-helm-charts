@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  jupyter-helm:
+  - apiVersion: v2
+    appVersion: 3.4.5
+    created: "2022-08-17T11:31:28.619280435-04:00"
+    description: A Helm chart for deploying JupyterLab on DIBBS Kubernetes
+    digest: 6cb8b8e7f5a1373fab166aba0a053dfbb0393bb17a370e3982b3c82f59b180fb
+    icon: https://raw.githubusercontent.com/jupyterlab/jupyterlab-desktop/master/dist-resources/icon.svg
+    name: jupyter-helm
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/jupyter-helm-0.1.1/jupyter-helm-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 3.4.5
+    created: "2022-08-17T11:31:28.525701748-04:00"
+    description: A Helm chart for deploying JupyterLab on DIBBS Kubernetes
+    digest: 859ab84abae6aa2888e369a5ae63c85dee20a2e6bbb2ddab9d0135eee13bf9b2
+    name: jupyter-helm
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/jupyter-helm-0.1.0/jupyter-helm-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-08-17T11:31:28.619314076-04:00"
