@@ -1,0 +1,9 @@
+---
+# Store JupyterLab token as a secret
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}-configmap"
+data:
+  jupyter_jupyterlab_server_config.py: |
+    c.ServerApp.token = {{ template "JUPYTERLAB.TOKEN" }}

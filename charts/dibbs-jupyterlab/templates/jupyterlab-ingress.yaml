@@ -8,7 +8,7 @@ metadata:
     name: "{{ .Release.Name }}"
 spec:
   rules:
-    - host: "{{ .Release.Name }}.{{ .Values.ingress.hostSuffix }}"
+    - host: "{{ template "JUPYTERLAB.INGRESSPREFIX" }}.{{ .Values.ingress.hostSuffix }}"
       http:
         paths:
           - path: /
@@ -17,19 +17,4 @@ spec:
               service:
                 name: "{{ .Release.Name }}-svc"
                 port:
-                  number: 80
-# ---
-# OKD/OpenShift route access
-# apiVersion: route.openshift.io/v1
-# kind: Route
-# metadata:
-#   name: {{ .Release.Name }}-route
-#   labels:
-#     name: {{ .Release.Name }}
-# spec:
-#   #path: /?token={{ .Values.jlabToken }}
-#   port:
-#     targetPort: http
-#   to:
-#     kind: Service
-#     name: {{ .Release.Name }}-svc
+                  number: {{ .Values.ingress.port }}

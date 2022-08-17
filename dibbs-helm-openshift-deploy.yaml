@@ -1,0 +1,8 @@
+apiVersion: helm.openshift.io/v1beta1
+kind: HelmChartRepository
+metadata:
+  name: dibbs-applications
+spec:
+  name: dibbs-applications
+  connectionConfig:
+    url: https://abf123.github.io/dibbs-helm-charts

@@ -9,9 +9,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
+    - port: {{ .Values.service.port }}
       targetPort: {{ .Values.container.port }}
-      protocol: TCP
-      name: http
+      protocol: "{{ .Values.service.protocol }}"
+      name: "{{ .Values.service.name }}"
   selector:
     name: "{{ .Release.Name }}"

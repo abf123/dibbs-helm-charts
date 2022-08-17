@@ -8,7 +8,8 @@ username: anonymous
 resourcePrefix: dibbs
 
 # Set default token value for jupyterlab (should be changed on command line)
-jlabToken: testing-token
+#jlabToken: {{ include "JUPYTERLAB.TOKEN" . }}
+password: testing123
 
 # Specify number of replicas (should be one for non-HA deployment)
 replicaCount: 1
@@ -26,9 +27,15 @@ image:
 pvcSize: 10Gi
 
 ingress:
+  port: 80
   hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
 
 commandInclude: JUPYTERLAB.COMMAND
+
+service:
+  port: 80
+  protocol: TCP
+  name: http
 
 container:
   port: 8888
