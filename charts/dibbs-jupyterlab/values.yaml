@@ -20,7 +20,7 @@ image:
   name: datascience-notebook
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "lab-3.4.5"
 
 # Size of persistent volume for jupyterlab container home directory
 pvcSize: 10Gi
