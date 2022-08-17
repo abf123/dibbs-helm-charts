@@ -1,0 +1,35 @@
+---
+# K8s ingress access
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "{{ .Release.Name }}-ingress"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  rules:
+    - host: "{{ .Release.Name }}.{{ .Values.ingress.hostSuffix }}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "{{ .Release.Name }}-svc"
+                port:
+                  number: 80
+# ---
+# OKD/OpenShift route access
+# apiVersion: route.openshift.io/v1
+# kind: Route
+# metadata:
+#   name: {{ .Release.Name }}-route
+#   labels:
+#     name: {{ .Release.Name }}
+# spec:
+#   #path: /?token={{ .Values.jlabToken }}
+#   port:
+#     targetPort: http
+#   to:
+#     kind: Service
+#     name: {{ .Release.Name }}-svc

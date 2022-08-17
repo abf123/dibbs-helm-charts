@@ -1,0 +1,40 @@
+# Default values for jupyter-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Username of user for which resources will be created
+username: anonymous
+
+resourcePrefix: dibbs
+
+# Set default token value for jupyterlab (should be changed on command line)
+jlabToken: testing-token
+
+# Specify number of replicas (should be one for non-HA deployment)
+replicaCount: 1
+
+image:
+  # Specify docker image repository
+  repository: jupyter
+  # Specify docker image name
+  name: datascience-notebook
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+# Size of persistent volume for jupyterlab container home directory
+pvcSize: 10Gi
+
+ingress:
+  hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
+
+commandInclude: JUPYTERLAB.COMMAND
+
+container:
+  port: 8888
+  env:
+    - name: CHOWN_HOME
+      value: 'yes'
+    - name: CHOWN_HOME_OPTS
+      value: '-R'
+  mountPath: /home/jovyan

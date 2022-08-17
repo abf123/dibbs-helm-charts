@@ -1,0 +1,17 @@
+---
+# Expose jupyterlab as service
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Release.Name }}-svc"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: {{ .Values.container.port }}
+      protocol: TCP
+      name: http
+  selector:
+    name: "{{ .Release.Name }}"

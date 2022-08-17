@@ -1,0 +1,47 @@
+---
+# Jupyterlab deployment for standard Jupyter docker container
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-deployment"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        name: "{{ .Release.Name }}"
+    spec:
+      securityContext:
+        fsGroup: 100
+      serviceAccount: sa-with-anyuid
+      serviceAccountName: sa-with-anyuid
+      containers:
+        - name: "{{ .Release.Name }}-container"
+          image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          env:
+            {{- toYaml .Values.container.env | nindent 12 }}
+          ports:
+          - containerPort: {{ .Values.container.port }}
+          command:
+            {{- include .Values.commandInclude . | nindent 12 }}
+          volumeMounts:
+            - name: "{{ .Values.resourcePrefix }}-{{ .Values.username }}-data"
+              mountPath: "{{ .Values.container.mountPath }}"
+          resources:
+            requests:
+              memory: 4Gi
+              cpu: 1000m
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 100
+      restartPolicy: Always
+      volumes:
+      - name: "{{ .Values.resourcePrefix }}-{{ .Values.username }}-data"
+        persistentVolumeClaim:
+          claimName: "{{ .Values.resourcePrefix }}-{{ .Values.username }}-pvc"

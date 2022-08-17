@@ -1,0 +1,35 @@
+# Default values for jupyter-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Set default token value for jupyterlab (should be changed on command line)
+rstudioPassword: testing-password
+
+# Specify number of replicas (should be one for non-HA deployment)
+replicaCount: 1
+
+image:
+  # Specify docker image repository
+  repository: rocker
+  # Specify docker image name
+  name: rstudio
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+# Size of persistent volume for jupyterlab container home directory
+pvcSize: 10Gi
+
+ingress:
+  hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
+
+commandInclude: RSTUDIO.COMMAND
+
+container:
+  port: 8787
+  env:
+    - name: DISABLE_AUTH
+      value: 'true'
+    - name: ROOT
+      value: 'true'
+  mountPath: /home/rstudio
