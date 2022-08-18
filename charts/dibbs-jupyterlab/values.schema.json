@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "required": [
+      "image"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "image": {
+        "type": "object",
+        "title": "Image",
+        "description": "Define Jupyter image to use",
+        "required": [
+          "name",
+          "tag"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Image Name",
+            "description": "Image to pull from Docker Hub",
+            "default": "datascience-notebook",
+            "examples": [
+              "datascience-notebook",
+              "minimal-notebook",
+              "tensorflow-notebook"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "title": "Image Tag",
+            "description": "Image tag to pull from Docker Hub",
+            "default": "lab-3.4.5",
+            "examples": [
+              "latest",
+              "lab-3.4.5",
+              "python-3.10.5"
+            ]
+          }
+        }
+      }
+    }
+  }
+  
