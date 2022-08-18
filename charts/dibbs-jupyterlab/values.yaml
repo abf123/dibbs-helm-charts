@@ -2,11 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-resourcePrefix: dibbs
-
-# Set default token value for jupyterlab (should be changed on command line)
-#jlabToken: {{ include "JUPYTERLAB.TOKEN" . }}
-password: testing123
+resourcePrefix: dibbs-user
 
 # Specify number of replicas (should be one for non-HA deployment)
 replicaCount: 1
@@ -20,14 +16,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "lab-3.4.5"
 
-# Size of persistent volume for jupyterlab container home directory
-pvcSize: 10Gi
-
 ingress:
   port: 80
   hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
-
-commandInclude: JUPYTERLAB.COMMAND
 
 service:
   port: 80
