@@ -3,13 +3,13 @@ entries:
   dibbs-jupyterlab:
   - apiVersion: v2
     appVersion: 3.4.5
-    created: "2022-08-18T13:30:38.726248226-04:00"
+    created: "2022-08-18T16:58:12.957835502-04:00"
     description: A Helm chart for deploying JupyterLab on DIBBS Kubernetes
-    digest: 52dbdcbbcae15597a133380bd2d84d1c903f4c7b2847fcbeb04daa7d4509b431
+    digest: 42cc1a05a9fab3c0d4164635ef4adbd8ef8632fa83fa5f4bcad14135b3dbd758
     icon: https://raw.githubusercontent.com/jupyterlab/jupyterlab-desktop/master/dist-resources/icon.svg
     name: dibbs-jupyterlab
     type: application
     urls:
-    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-jupyterlab-0.1.4/dibbs-jupyterlab-0.1.4.tgz
-    version: 0.1.4
-generated: "2022-08-18T13:30:38.726268115-04:00"
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-jupyterlab-0.1.5/dibbs-jupyterlab-0.1.5.tgz
+    version: 0.1.5
+generated: "2022-08-18T16:58:12.957854674-04:00"
