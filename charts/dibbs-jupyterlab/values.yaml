@@ -2,9 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# Username of user for which resources will be created
-username: anonymous
-
 resourcePrefix: dibbs
 
 # Set default token value for jupyterlab (should be changed on command line)
