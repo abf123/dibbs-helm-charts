@@ -7,6 +7,9 @@ metadata:
   labels:
     name: "{{ .Release.Name }}"
 spec:
+  tls:
+  - hosts:
+      - "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
   rules:
     - host: "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
       http:
