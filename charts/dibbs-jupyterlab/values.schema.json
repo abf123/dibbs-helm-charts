@@ -7,8 +7,8 @@
   "properties": {
     "resourcePrefix": {
       "default": "dibbs-user",
-      "description": "Define number of Jupyter pods running (only 1 is supported)",
-      "title": "Prefix to apply to resource names and tags",
+      "description": "Prefix to apply to resource names and tags",
+      "title": "Resource Prefix",
       "type": "string",
       "enum": [
         "dibbs-user"
@@ -149,15 +149,6 @@
           "default": "/home/jovyan",
           "enum": [
             "/home/jovyan"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "title": "Service name",
-          "description": "Define instance service name",
-          "default": "jupyterlab-http",
-          "enum": [
-            "jupyterlab-http"
           ]
         }
       }
