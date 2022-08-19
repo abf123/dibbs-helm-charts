@@ -20,4 +20,4 @@ spec:
               service:
                 name: "{{ .Release.Name }}-svc"
                 port:
-                  number: {{ .Values.ingress.port }}
+                  number: {{ .Values.service.port }}

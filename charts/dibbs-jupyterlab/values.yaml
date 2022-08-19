@@ -17,7 +17,6 @@ image:
   tag: "lab-3.4.5"
 
 ingress:
-  port: 80
   hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
 
 service:
