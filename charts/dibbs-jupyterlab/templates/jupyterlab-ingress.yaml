@@ -1,23 +1,41 @@
 ---
-# K8s ingress access
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+# OKD/OpenShift route access
+apiVersion: route.openshift.io/v1
+kind: Route
 metadata:
-  name: "{{ .Release.Name }}-ingress"
+  name: "{{ .Release.Name }}-route"
   labels:
     name: "{{ .Release.Name }}"
 spec:
+  host: "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: "{{ .Release.Name }}-svc"
   tls:
-  - hosts:
-      - "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
-  rules:
-    - host: "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: "{{ .Release.Name }}-svc"
-                port:
-                  number: {{ .Values.service.port }}
+    termination: edge
+
+# ---
+# # K8s ingress access
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: "{{ .Release.Name }}-ingress"
+#   labels:
+#     name: "{{ .Release.Name }}"
+# spec:
+#   tls:
+#   - hosts:
+#       - "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
+#   rules:
+#     - host: "jlab-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: "{{ .Release.Name }}-svc"
+#                 port:
+#                   number: {{ .Values.service.port }}
