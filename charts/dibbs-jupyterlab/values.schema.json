@@ -1,82 +1,166 @@
 {
-    "type": "object",
-    "required": [
-      "image"
-    ],
-    "additionalProperties": true,
-    "properties": {
-      "resourcePrefix": {
-        "default": "dibbs-user",
-        "description": "Define number of Jupyter pods running (only 1 is supported)",
-        "title": "Prefix to apply to resource names and tags",
-        "type": "string",
-        "enum": [
-          "dibbs-user"
-        ]
-      },
-      "replicaCount": {
-        "default": 1,
-        "description": "Define number of Jupyter pods running (only 1 is supported)",
-        "title": "Replica Count",
-        "type": "integer",
-        "enum": [
-          1
-        ]
-      },
-      "image": {
-        "type": "object",
-        "title": "Image",
-        "description": "Define Jupyter image to use",
-        "required": [
-          "name",
-          "tag"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "repository": {
-            "type": "string",
-            "title": "Docker Hub Repository",
-            "description": "Define repository",
-            "default": "jupyter",
-            "enum": [
-              "jupyter"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "title": "Image Name",
-            "description": "Image to pull from Docker Hub",
-            "default": "datascience-notebook",
-            "examples": [
-              "datascience-notebook",
-              "minimal-notebook",
-              "tensorflow-notebook"
-            ]
-          },
-          "tag": {
-            "type": "string",
-            "title": "Image Tag",
-            "description": "Image tag to pull from Docker Hub",
-            "default": "lab-3.4.5",
-            "examples": [
-              "latest",
-              "lab-3.4.5",
-              "python-3.10.5"
-            ]
-          },
-          "pullPolicy": {
-            "type": "string",
-            "title": "Pull Policy",
-            "description": "Define image pull policy",
-            "default": "IfNotPresent",
-            "enum": [
-              "Always",
-              "IfNotPresent",
-              "Never"
-            ]
-          }
+  "type": "object",
+  "required": [
+    "image"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "resourcePrefix": {
+      "default": "dibbs-user",
+      "description": "Define number of Jupyter pods running (only 1 is supported)",
+      "title": "Prefix to apply to resource names and tags",
+      "type": "string",
+      "enum": [
+        "dibbs-user"
+      ]
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Define number of Jupyter pods running (only 1 is supported)",
+      "title": "Replica Count",
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "image": {
+      "type": "object",
+      "title": "Image",
+      "description": "Define Jupyter image to use",
+      "required": [
+        "name",
+        "tag"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "title": "Docker Hub Repository",
+          "description": "Define repository",
+          "default": "jupyter",
+          "enum": [
+            "jupyter"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Image Name",
+          "description": "Image to pull from Docker Hub",
+          "default": "datascience-notebook",
+          "examples": [
+            "datascience-notebook",
+            "minimal-notebook",
+            "tensorflow-notebook"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "title": "Image Tag",
+          "description": "Image tag to pull from Docker Hub",
+          "default": "lab-3.4.5",
+          "examples": [
+            "latest",
+            "lab-3.4.5",
+            "python-3.10.5"
+          ]
+        },
+        "pullPolicy": {
+          "type": "string",
+          "title": "Pull Policy",
+          "description": "Define image pull policy",
+          "default": "IfNotPresent",
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "title": "Ingress",
+      "description": "Define ingress parameters",
+      "additionalProperties": true,
+      "properties": {
+        "hostSuffix": {
+          "type": "string",
+          "title": "Host suffix",
+          "description": "Define suffix for instance URL",
+          "default": "apps.dibbs-okd.cloud.icds.psu.edu",
+          "enum": [
+            "apps.dibbs-okd.cloud.icds.psu.edu"
+          ]
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "title": "Service",
+      "description": "Define service parameters",
+      "additionalProperties": true,
+      "properties": {
+        "port": {
+          "type": "integer",
+          "title": "Service port",
+          "description": "Define port for service",
+          "default": 80,
+          "enum": [
+            80
+          ]
+        },
+        "protocol": {
+          "type": "string",
+          "title": "Service protocol",
+          "description": "Define protocol for instance service",
+          "default": "TCP",
+          "enum": [
+            "TCP"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Service name",
+          "description": "Define instance service name",
+          "default": "http",
+          "enum": [
+            "http"
+          ]
+        }
+      }
+    },
+    "container": {
+      "type": "object",
+      "title": "Container",
+      "description": "Define container parameters",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "title": "Exposed container port",
+          "description": "Define exposed container port",
+          "default": 8888,
+          "enum": [
+            8888
+          ]
+        },
+        "mountPath": {
+          "type": "string",
+          "title": "Mount path",
+          "description": "Define mount path for attached persistent storage",
+          "default": "/home/jovyan",
+          "enum": [
+            "/home/jovyan"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Service name",
+          "description": "Define instance service name",
+          "default": "jupyterlab-http",
+          "enum": [
+            "jupyterlab-http"
+          ]
         }
       }
     }
   }
-  
+}
