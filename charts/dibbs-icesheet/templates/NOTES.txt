@@ -1,0 +1,17 @@
+To access the toolchain:
+
+* Click on "Helm" in the left-hand navigation panel
+* Select the "dibbs-icesheet" Helm release
+* Choose the "Resources" Tab
+* Select the "dibbs-icesheet-deployment" deployment
+* Choose the "Pods" tab
+* Select the running pod ("dibbs-icesheet-deployment-XXX")
+* Select the "Terminal" tab
+
+The toolchain and data are in /DATA
+
+An example workflow:
+$ cd /DATA/code/Make
+$ cp make_eg_user Makefile
+$ make
+$ ./sheetshelf.exe

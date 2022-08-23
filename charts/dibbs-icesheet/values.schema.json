@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "required": [
+    "image"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "resourcePrefix": {
+      "default": "dibbs-user",
+      "description": "Prefix to apply to resource names and tags",
+      "title": "Resource Prefix",
+      "type": "string",
+      "enum": [
+        "dibbs-user"
+      ]
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Define number of Ice Sheet pods running (only 1 is supported)",
+      "title": "Replica Count",
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "image": {
+      "type": "object",
+      "title": "Image",
+      "description": "Define Ice Sheet image to use",
+      "required": [
+        "name",
+        "tag"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "title": "Docker Hub Repository",
+          "description": "Define repository",
+          "default": "abf123",
+          "enum": [
+            "abf123"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Image Name",
+          "description": "Image to pull from Docker Hub",
+          "default": "dibbs-psu",
+          "enum": [
+            "dibbs-psu"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "title": "Image Tag",
+          "description": "Image tag to pull from Docker Hub",
+          "default": "icesheet-alma8",
+          "enum": [
+            "icesheet-alma8"
+          ]
+        },
+        "pullPolicy": {
+          "type": "string",
+          "title": "Pull Policy",
+          "description": "Define image pull policy",
+          "default": "IfNotPresent",
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
+        }
+      }
+    },
+    "container": {
+      "type": "object",
+      "title": "Container",
+      "description": "Define container parameters",
+      "properties": {
+        "mountPath": {
+          "type": "string",
+          "title": "Mount path",
+          "description": "Define mount path for attached persistent storage",
+          "default": "/home/dibbs-user",
+          "enum": [
+            "/home/dibbs-user"
+          ]
+        }
+      }
+    }
+  }
+}

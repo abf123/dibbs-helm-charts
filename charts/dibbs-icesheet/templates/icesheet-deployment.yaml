@@ -1,0 +1,47 @@
+---
+# DIBBs deployment for ice sheet toolchain container
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-deployment"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        name: "{{ .Release.Name }}"
+    spec:
+      securityContext:
+        fsGroup: 100
+      serviceAccount: sa-with-anyuid
+      serviceAccountName: sa-with-anyuid
+      containers:
+        - name: "{{ .Release.Name }}-container"
+          image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          command:
+            - /bin/bash
+            - -c
+            - |
+              sleep infinity
+          volumeMounts:
+            - name: "{{ .Values.resourcePrefix }}-data"
+              mountPath: "{{ .Values.container.mountPath }}"
+          workingDir: "{{ .Values.container.mountPath }}"
+          resources:
+            requests:
+              memory: 4Gi
+              cpu: 1000m
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 100
+      restartPolicy: Always
+      volumes:
+      - name: "{{ .Values.resourcePrefix }}-data"
+        persistentVolumeClaim:
+          claimName: "{{ .Values.resourcePrefix }}-pvc"
