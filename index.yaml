@@ -1,5 +1,18 @@
 apiVersion: v1
 entries:
+  dibbs-icesheet:
+  - apiVersion: v2
+    appVersion: 2022.07.1-554
+    created: "2022-08-23T11:09:09.798274301-04:00"
+    description: A Helm chart for deploying an Ice Sheet toolchain instance on DIBBS
+      Kubernetes
+    digest: eb0e9be9825d456f46c75d66284fe4ae17f490b7889c0c89aadbb5dcc32ab739
+    icon: https://github.com/fortran-lang/fortran-lang.org/blob/master/assets/img/fortran-logo.svg
+    name: dibbs-icesheet
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-icesheet-0.1.0/dibbs-icesheet-0.1.0.tgz
+    version: 0.1.0
   dibbs-jupyterlab:
   - apiVersion: v2
     appVersion: 3.4.5
@@ -12,4 +25,16 @@ entries:
     urls:
     - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-jupyterlab-0.1.8/dibbs-jupyterlab-0.1.8.tgz
     version: 0.1.8
-generated: "2022-08-19T15:17:41.190829317-04:00"
+  dibbs-rstudio-server:
+  - apiVersion: v2
+    appVersion: 2022.07.1-554
+    created: "2022-08-23T11:09:10.045558971-04:00"
+    description: A Helm chart for deploying Rstudio Server Open Source on DIBBS Kubernetes
+    digest: 1c9ff6e4b44cb3bb4fef6c79658f566d0637af8fff369bd856d87f5b90901e84
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg
+    name: dibbs-rstudio-server
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-rstudio-server-0.1.0/dibbs-rstudio-server-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-08-23T11:09:10.045572901-04:00"
