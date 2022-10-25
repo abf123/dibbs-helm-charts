@@ -18,3 +18,4 @@ Below is a table the values used to configure this chart.
 | `service.name` | Define name for instance service | `http` | As in /etc/services, not a name to apply to the resources |
 | `container.port` | Define exposed container port | `8888` | This is the port exposed by the container |
 | `container.mountPath` | Define mount path for attached persistent storage | `/home/jovyan` | Mounted in the home by the container user (jovyan) |
+| `container.addlCmds` | Additional commands to run prior to instantiating Jupyter | `conda install -c conda-forge nb_conda_kernels -y` | Only a single line command is supported due to limitations of JSON |

@@ -32,6 +32,7 @@ spec:
             - /bin/bash
             - -c
             - |
+              {{ .Values.container.addlCmds }}
               start.sh jupyter lab \
                 --ServerApp.token={{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.token | quote }} \
                 --ServerApp.password='' --debug --ServerApp.ip='0.0.0.0' --ServerApp.allow_remote_access='True' --ServerApp.allow_origin='*' \

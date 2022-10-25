@@ -150,6 +150,12 @@
           "enum": [
             "/home/jovyan"
           ]
+        },
+        "addlCmds": {
+          "type": "string",
+          "title": "Additional commands",
+          "description": "Additional commands to run prior to instantiating Jupyter",
+          "default": "conda install -c conda-forge nb_conda_kernels -y"
         }
       }
     }

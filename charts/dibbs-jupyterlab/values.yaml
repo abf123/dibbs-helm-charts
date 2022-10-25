@@ -32,3 +32,4 @@ container:
     - name: CHOWN_HOME_OPTS
       value: '-R'
   mountPath: /home/jovyan
+  addlCmds: conda install -c conda-forge nb_conda_kernels -y
