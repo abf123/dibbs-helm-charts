@@ -51,7 +51,7 @@ entries:
   dibbs-scientific-desktop:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-10-25T18:37:16.25376382-04:00"
+    created: "2022-10-25T18:40:34.523754358-04:00"
     description: A Helm chart for deploying a scientific desktop container on DIBBS
       Kubernetes
     digest: e6e9bf46e70b0689d275043917ce0dbd1fc803f5f27cd3f4183bce73ccd81857
@@ -61,4 +61,4 @@ entries:
     urls:
     - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-scientific-desktop-0.1.0/dibbs-scientific-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2022-10-25T18:37:16.253779216-04:00"
+generated: "2022-10-25T18:40:34.523769532-04:00"
