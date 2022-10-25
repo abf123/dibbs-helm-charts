@@ -3,17 +3,28 @@ entries:
   dibbs-icesheet:
   - apiVersion: v2
     appVersion: 2022.07.1-554
-    created: "2022-08-23T11:09:09.798274301-04:00"
+    created: "2022-08-24T15:31:48.587216907-04:00"
     description: A Helm chart for deploying an Ice Sheet toolchain instance on DIBBS
       Kubernetes
-    digest: eb0e9be9825d456f46c75d66284fe4ae17f490b7889c0c89aadbb5dcc32ab739
-    icon: https://github.com/fortran-lang/fortran-lang.org/blob/master/assets/img/fortran-logo.svg
+    digest: 377713dbcfcce6029c0b9750d4730752bb68850772ed5bffee66af48afc651fb
+    icon: https://raw.githubusercontent.com/fortran-lang/fortran-lang.org/master/assets/img/fortran-logo.svg
     name: dibbs-icesheet
     type: application
     urls:
-    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-icesheet-0.1.0/dibbs-icesheet-0.1.0.tgz
-    version: 0.1.0
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-icesheet-0.1.1/dibbs-icesheet-0.1.1.tgz
+    version: 0.1.1
   dibbs-jupyterlab:
+  - apiVersion: v2
+    appVersion: 3.4.5
+    created: "2022-10-10T14:57:42.439106938-04:00"
+    description: A Helm chart for deploying JupyterLab on DIBBS Kubernetes
+    digest: cc351a1b17e0b996bd62c24276ba16ced897916ba32b0cef8427224ef5caec72
+    icon: https://raw.githubusercontent.com/jupyterlab/jupyterlab-desktop/master/dist-resources/icon.svg
+    name: dibbs-jupyterlab
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-jupyterlab-0.1.9/dibbs-jupyterlab-0.1.9.tgz
+    version: 0.1.9
   - apiVersion: v2
     appVersion: 3.4.5
     created: "2022-08-19T15:17:41.190813389-04:00"
@@ -28,13 +39,26 @@ entries:
   dibbs-rstudio-server:
   - apiVersion: v2
     appVersion: 2022.07.1-554
-    created: "2022-08-23T11:09:10.045558971-04:00"
+    created: "2022-08-24T15:31:48.804164764-04:00"
     description: A Helm chart for deploying Rstudio Server Open Source on DIBBS Kubernetes
-    digest: 1c9ff6e4b44cb3bb4fef6c79658f566d0637af8fff369bd856d87f5b90901e84
-    icon: https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg
+    digest: 6b539109d9615ac47774421a7ebb42bb63bc9b8266ce66ac2ff59ffdf305ec40
+    icon: https://raw.githubusercontent.com/rstudio/hex-stickers/master/SVG/RStudio.svg
     name: dibbs-rstudio-server
     type: application
     urls:
-    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-rstudio-server-0.1.0/dibbs-rstudio-server-0.1.0.tgz
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-rstudio-server-0.1.1/dibbs-rstudio-server-0.1.1.tgz
+    version: 0.1.1
+  dibbs-scientific-desktop:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2022-10-25T18:37:16.25376382-04:00"
+    description: A Helm chart for deploying a scientific desktop container on DIBBS
+      Kubernetes
+    digest: e6e9bf46e70b0689d275043917ce0dbd1fc803f5f27cd3f4183bce73ccd81857
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg
+    name: dibbs-scientific-desktop
+    type: application
+    urls:
+    - https://github.com/abf123/dibbs-helm-charts/releases/download/dibbs-scientific-desktop-0.1.0/dibbs-scientific-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-23T11:09:10.045572901-04:00"
+generated: "2022-10-25T18:37:16.253779216-04:00"
