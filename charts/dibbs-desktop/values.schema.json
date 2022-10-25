@@ -1,0 +1,153 @@
+{
+  "type": "object",
+  "required": [
+    "image"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "resourcePrefix": {
+      "default": "dibbs-user",
+      "description": "Prefix to apply to resource names and tags",
+      "title": "Resource Prefix",
+      "type": "string",
+      "enum": [
+        "dibbs-user"
+      ]
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Define number of desktop pods running (only 1 is supported)",
+      "title": "Replica Count",
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "image": {
+      "type": "object",
+      "title": "Image",
+      "description": "Define scientific desktop image to use",
+      "required": [
+        "name",
+        "tag"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "title": "Docker Hub Repository",
+          "description": "Define repository",
+          "default": "abf123",
+          "enum": [
+            "abf123"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Image Name",
+          "description": "Image to pull from Docker Hub",
+          "default": "dibbs-psu",
+          "enum": [
+            "dibbs-psu"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "title": "Image Tag",
+          "description": "Image tag to pull from Docker Hub",
+          "default": "desktop-ubuntu",
+          "enum": [
+            "desktop-ubuntu"
+          ]
+        },
+        "pullPolicy": {
+          "type": "string",
+          "title": "Pull Policy",
+          "description": "Define image pull policy",
+          "default": "IfNotPresent",
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "title": "Ingress",
+      "description": "Define ingress parameters",
+      "additionalProperties": true,
+      "properties": {
+        "hostSuffix": {
+          "type": "string",
+          "title": "Host suffix",
+          "description": "Define suffix for instance URL",
+          "default": "apps.dibbs-okd.cloud.icds.psu.edu",
+          "enum": [
+            "apps.dibbs-okd.cloud.icds.psu.edu"
+          ]
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "title": "Service",
+      "description": "Define service parameters",
+      "additionalProperties": true,
+      "properties": {
+        "port": {
+          "type": "integer",
+          "title": "Service port",
+          "description": "Define port for service",
+          "default": 80,
+          "enum": [
+            80
+          ]
+        },
+        "protocol": {
+          "type": "string",
+          "title": "Service protocol",
+          "description": "Define protocol for instance service",
+          "default": "TCP",
+          "enum": [
+            "TCP"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Service name",
+          "description": "Define instance service name",
+          "default": "http",
+          "enum": [
+            "http"
+          ]
+        }
+      }
+    },
+    "container": {
+      "type": "object",
+      "title": "Container",
+      "description": "Define container parameters",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "title": "Exposed container port",
+          "description": "Define exposed container port",
+          "default": 8080,
+          "enum": [
+            8080
+          ]
+        },
+        "mountPath": {
+          "type": "string",
+          "title": "Mount path",
+          "description": "Define mount path for attached persistent storage",
+          "default": "/home/dibbs-user",
+          "enum": [
+            "/home/dibbs-user"
+          ]
+        }
+      }
+    }
+  }
+}

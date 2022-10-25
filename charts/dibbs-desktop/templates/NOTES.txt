@@ -1,0 +1,3 @@
+Access your desktop instance <a target="_blank" href='https://desktop-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}/vnc.html?resize=remote&autoconnect=true&password={{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.token }}'>here</a> or copy and paste the URL below:
+
+https://desktop-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}/vnc.html?resize=remote&autoconnect=true&password={{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.token }}
