@@ -32,8 +32,8 @@ spec:
             - /bin/bash
             - -c
             - |
-              xfconf-query -c xfce4-screensaver -p /lock/enabled -s false && \
-              xfconf-query -c xfce4-screensaver -p /saver/enabled -s false && \
+              echo xfconf-query -c xfce4-screensaver -p /lock/enabled -s false && \
+              echo xfconf-query -c xfce4-screensaver -p /saver/enabled -s false && \
               mkdir --mode=0770 -p /home/dibbs-user/.vnc && \
               echo {{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.token | quote }} | vncpasswd -f >/home/dibbs-user/.vnc/passwd && \
               /usr/local/bin/start_desktop.sh
