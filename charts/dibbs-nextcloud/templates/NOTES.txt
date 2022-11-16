@@ -1,0 +1,10 @@
+Access your Rstudio instance <a target="_blank" href='https://rstudio-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}'>here</a> or copy and paste the URL below:
+
+https://rstudio-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}
+
+
+To log in to Rstudio, use the following credentials:
+
+Username: dibbs-user
+
+Password: {{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.token }}

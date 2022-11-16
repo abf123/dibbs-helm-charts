@@ -1,0 +1,17 @@
+---
+# OKD/OpenShift route access
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: "{{ .Release.Name }}-route"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  host: "rstudio-{{ (lookup "v1" "ConfigMap" .Release.Namespace "dibbs-user-configmap").data.ingressId }}.{{ .Values.ingress.hostSuffix }}"
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: "{{ .Release.Name }}-svc"
+  tls:
+    termination: edge

@@ -1,0 +1,34 @@
+# Default values for dibbs-nextcloud.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+resourcePrefix: dibbs-user
+
+# Specify number of replicas (should be one for non-HA deployment)
+replicaCount: 1
+
+image:
+  # Specify docker image repository
+  repository: _
+  # Specify docker image name
+  name: nextcloud
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+ingress:
+  hostSuffix: apps.dibbs-okd.cloud.icds.psu.edu
+
+service:
+  port: 80
+  protocol: TCP
+  name: http
+
+container:
+  port: 80
+  env:
+    - name: CHOWN_HOME
+      value: 'yes'
+    - name: CHOWN_HOME_OPTS
+      value: '-R'
+  mountPath: /var/www/html

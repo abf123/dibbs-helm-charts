@@ -1,0 +1,17 @@
+---
+# Expose rstudio as service
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Release.Name }}-svc"
+  labels:
+    name: "{{ .Release.Name }}"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.container.port }}
+      protocol: "{{ .Values.service.protocol }}"
+      name: "{{ .Values.service.name }}"
+  selector:
+    name: "{{ .Release.Name }}"
